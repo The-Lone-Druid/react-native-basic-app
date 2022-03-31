@@ -23,6 +23,14 @@ const styles = StyleSheet.create({
     resizeMode: "cover",
     position: "absolute",
   },
+  buttonsContainer: {
+    flex: 1,
+    justifyContent: "flex-end",
+    paddingBottom: 50,
+  },
+  borderBottom: {
+    textDecorationLine: "underline",
+  },
 });
 
 export default styles;

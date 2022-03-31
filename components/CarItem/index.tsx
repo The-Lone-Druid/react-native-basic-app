@@ -3,33 +3,39 @@ import React from "react";
 import styles from "./styles";
 import StyledButton from "../StyledButton";
 
-type Props = {};
+type Props = {
+  name: string;
+  tagLine: string;
+  image: string | any;
+  tagLineCTA: string;
+};
 
-const CarItem = (props: Props) => {
+const CarItem = ({ name, tagLine, tagLineCTA, image }: Props) => {
   return (
     <View style={styles.carContainer}>
-      <ImageBackground
-        source={require("../../assets/images/ModelS.jpeg")}
-        style={styles.image}
-      />
+      <ImageBackground source={image} style={styles.image} />
       <View style={styles.titles}>
-        <Text style={styles.title}>Model S</Text>
-        <Text style={styles.subTitle}>Starting at $69,420</Text>
+        <Text style={styles.title}>{name}</Text>
+        <Text style={styles.subTitle}>
+          {tagLine} <Text style={styles.borderBottom}>{tagLineCTA}</Text>
+        </Text>
       </View>
-      <StyledButton
-        type="primary"
-        text={"custom order"}
-        onPress={() => {
-          console.log("Custom order button was pressed");
-        }}
-      />
-      <StyledButton
-        type="secondary"
-        text={"existing inventory"}
-        onPress={() => {
-          console.log("existing inventory button was pressed");
-        }}
-      />
+      <View style={styles.buttonsContainer}>
+        <StyledButton
+          type="primary"
+          text={"custom order"}
+          onPress={() => {
+            console.log("Custom order button was pressed");
+          }}
+        />
+        <StyledButton
+          type="secondary"
+          text={"existing inventory"}
+          onPress={() => {
+            console.log("existing inventory button was pressed");
+          }}
+        />
+      </View>
     </View>
   );
 };
