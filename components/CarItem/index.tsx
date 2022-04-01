@@ -3,21 +3,18 @@ import React from "react";
 import styles from "./styles";
 import StyledButton from "../StyledButton";
 
-type Props = {
-  name: string;
-  tagLine: string;
-  image: string | any;
-  tagLineCTA: string;
-};
+type Props = {};
 
-const CarItem = ({ name, tagLine, tagLineCTA, image }: Props) => {
+const CarItem = ({ car }: Props | any) => {
+  const { image, name, tagline, taglineCTA } = car;
+
   return (
     <View style={styles.carContainer}>
       <ImageBackground source={image} style={styles.image} />
       <View style={styles.titles}>
         <Text style={styles.title}>{name}</Text>
         <Text style={styles.subTitle}>
-          {tagLine} <Text style={styles.borderBottom}>{tagLineCTA}</Text>
+          {tagline} <Text style={styles.borderBottom}>{taglineCTA}</Text>
         </Text>
       </View>
       <View style={styles.buttonsContainer}>
